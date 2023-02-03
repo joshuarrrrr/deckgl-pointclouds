@@ -1,9 +1,9 @@
-import { sveltekit } from '@sveltejs/kit/vite';
+import { sveltekit } from "@sveltejs/kit/vite";
 
 const config = {
 	plugins: [sveltekit()],
 	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
+		include: ["src/**/*.{test,spec}.{js,ts}"]
 	}
 };
 
