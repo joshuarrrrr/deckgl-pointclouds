@@ -1,5 +1,5 @@
 <script>
-	import Map from "$lib/components/Map.svelte";
+	import Deck from "$lib/components/Deck.svelte";
 	import { COORDINATE_SYSTEM } from "@deck.gl/core";
 	import { PointCloudLayer } from "@deck.gl/layers";
 	import { onMount } from "svelte";
@@ -34,4 +34,4 @@
 	);
 </script>
 
-<Map longitude={-122.4} latitude={37.74} zoom={11} {layers} />
+<Deck longitude={-122.4} latitude={37.74} zoom={11} {layers} />
