@@ -22,5 +22,9 @@
 		"vite": "^4.0.0",
 		"vitest": "^0.25.3"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@deck.gl/core": "^8.8.23",
+		"@deck.gl/layers": "^8.8.23"
+	}
 }
