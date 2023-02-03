@@ -22,7 +22,10 @@
 				zoom
 			},
 			controller: true,
-			layers
+			layers,
+			onViewStateChange: ({ viewState }) => {
+				({ longitude, latitude, zoom } = viewState);
+			}
 		});
 	});
 
