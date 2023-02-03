@@ -1,23 +1,34 @@
 <script>
 	import { Deck } from "@deck.gl/core";
-	import { ScatterplotLayer } from "@deck.gl/layers";
+	import { onMount } from "svelte";
 
-	const INITIAL_VIEW_STATE = {
-		latitude: 37.8,
-		longitude: -122.45,
-		zoom: 15
-	};
+	export let latitude = 0;
+	export let longitude = 0;
+	export let zoom = 0;
 
-	const deckgl = new Deck({
-		mapStyle: "https://basemaps.cartocdn.com/gl/positron-nolabels-gl-style/style.json",
-		initialViewState: INITIAL_VIEW_STATE,
-		controller: true,
-		layers: [
-			new ScatterplotLayer({
-				data: [{ position: [-122.45, 37.8], color: [255, 0, 0], radius: 100 }],
-				getColor: (d) => d.color,
-				getRadius: (d) => d.radius
-			})
-		]
+	export let layers = [];
+
+	let container;
+	let canvas;
+	let deck;
+
+	onMount(() => {
+		deck = new Deck({
+			parent: container,
+			canvas,
+			initialViewState: {
+				longitude,
+				latitude,
+				zoom
+			},
+			controller: true,
+			layers
+		});
 	});
+
+	$: layers, deck && deck.setProps({ layers });
 </script>
+
+<div id="container" bind:this={container}>
+	<canvas bind:this={canvas} />
+</div>
